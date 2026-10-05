@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>赤潮 絵本庫</title>
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="description" content="個人向けの非公開書庫" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="gate" class="gate" hidden>
+      <div class="gate-panel">
+        <p class="gate-kicker">PRIVATE SHELF</p>
+        <h1 class="gate-title">赤潮 絵本庫</h1>
+        <p class="gate-text">この書庫は、共有されたリンクを知っている人だけが開けます。</p>
+        <form id="gate-form" class="gate-form">
+          <label for="gate-input">合言葉</label>
+          <input id="gate-input" name="key" type="password" autocomplete="off" spellcheck="false" />
+          <button type="submit">開く</button>
+        </form>
+        <p id="gate-error" class="gate-error" hidden>合言葉が違います。</p>
+      </div>
+    </div>
+
+    <div id="library" class="library" hidden>
+      <header class="library-header">
+        <p class="eyebrow">PRIVATE SHELF</p>
+        <h1 id="library-title">赤潮 絵本庫</h1>
+        <p id="library-lead" class="library-lead"></p>
+      </header>
+      <section class="toc">
+        <div class="toc-head">
+          <h2>目次</h2>
+          <p id="toc-count"></p>
+        </div>
+        <ol id="toc-list" class="toc-list"></ol>
+      </section>
+    </div>
+
+    <div id="reader" class="reader" hidden>
+      <header class="reader-bar">
+        <button type="button" id="to-toc" class="text-btn">目次</button>
+        <p id="progress" class="progress">1 / 1</p>
+        <button type="button" id="restart" class="text-btn" hidden>表紙へ</button>
+      </header>
+
+      <main id="stage" class="stage" tabindex="0" aria-label="タップで次のページへ">
+        <article id="page" class="page">
+          <p id="kicker" class="kicker"></p>
+          <h1 id="title" class="title"></h1>
+          <div id="body" class="body"></div>
+          <p id="hint" class="hint"></p>
+        </article>
+      </main>
+
+      <nav class="nav" aria-label="ページ操作">
+        <button type="button" id="prev" class="nav-btn">前へ</button>
+        <button type="button" id="next" class="nav-btn primary">次へ</button>
+      </nav>
+    </div>
+
+    <script src="./config.js"></script>
+    <script src="./stories.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
